@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About BMW - More BMW</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <style>
+        /* tab navigation */
+        .tab-nav {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid #ddd;
+            margin: 0 60px;
+            margin-top: 10px;
+        }
+
+        .tab-nav-btn {
+            padding: 14px 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'Oswald', sans-serif;
+            color: #777;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-nav-btn.active {
+            color: #1c69d4;
+            border-bottom: 3px solid #1c69d4;
+            margin-bottom: -2px;
+        }
+
+        /* tab content sections */
+        .tab-content {
+            display: none;
+            padding: 40px 60px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ── ABOUT US section ── */
+        .about-section {
+            max-width: 800px;
+        }
+
+        .about-section h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 15px;
+        }
+
+        .about-section p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        /* stats row */
+        .stats-row {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .stat-box {
+            flex: 1;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .stat-box h3 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #1c69d4;
+        }
+
+        .stat-box p {
+            color: #888;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        /* ── FEEDBACK section ── */
+        .feedback-form {
+            max-width: 550px;
+        }
+
+        .feedback-form h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        /* star rating */
+        .star-rating {
+            margin-bottom: 20px;
+        }
+
+        .star-rating label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .stars {
+            display: flex;
+            gap: 5px;
+        }
+
+        .star {
+            font-size: 30px;
+            color: #ddd;
+            cursor: pointer;
+        }
+
+        .star.selected {
+            color: #f5a623;
+        }
+
+        .star:hover {
+            color: #f5a623;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #1c69d4;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        /* ── FAQ section ── */
+        .faq-section {
+            max-width: 750px;
+        }
+
+        .faq-section h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 16px 20px;
+            background-color: white;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 15px;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 400;
+            color: #222;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background-color: #f9f9f9;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 15px 20px;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.7;
+            border-top: 1px solid #eee;
+            font-weight: 300;
+        }
+
+        .faq-answer.open {
+            display: block;
+        }
+
+        .arrow {
+            font-size: 12px;
+            transition: transform 0.3s;
+        }
+
+        .faq-question.open .arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- same header as home page -->
+    <header class="sub-header">
+        <a href="index.html"><img src="BMW_White_Logo.svg.asset.1670245093434.svg" alt="BMW Logo"></a>
+        <nav class="nav">
+            <div class="nav-links">
+                <a href="category.html">All Models</a>
+                <a href="index.html">Electric</a>
+                <a href="payment.html">Visit Online Shop</a>
+                <a href="about.html">More BMW</a>
+            </div>
+            <div class="icons">
+                <a href="login.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <path d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z" />
+                    </svg>
+                </a>
+                <a href="category.html">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <path d="M223.5-103.5Q200-127 200-160t23.5-56.5Q247-240 280-240t56.5 23.5Q360-193 360-160t-23.5 56.5Q313-80 280-80t-56.5-23.5Zm400 0Q600-127 600-160t23.5-56.5Q647-240 680-240t56.5 23.5Q760-193 760-160t-23.5 56.5Q713-80 680-80t-56.5-23.5ZM246-720l96 200h280l110-200H246Zm-38-80h590q23 0 35 20.5t1 41.5L692-482q-11 20-29.5 31T622-440H324l-44 80h480v80H280q-45 0-68-39.5t-2-78.5l54-98-144-304H40v-80h130l38 80Zm134 280h280-280Z" />
+                    </svg>
+                </a>
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                        <path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z" />
+                    </svg>
+                </a>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                    <path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                </svg>
+            </div>
+        </nav>
+    </header>
+
+    <!-- page title -->
+    <div class="page-title">
+        <h1>More BMW</h1>
+    </div>
+
+    <!-- tab navigation -->
+    <div class="tab-nav">
+        <button class="tab-nav-btn active" id="aboutTab" onclick="showSection('about')">About Us</button>
+        <button class="tab-nav-btn" id="feedbackTab" onclick="showSection('feedback')">Feedback</button>
+        <button class="tab-nav-btn" id="faqTab" onclick="showSection('faq')">FAQ</button>
+    </div>
+
+    <!-- ABOUT US content -->
+    <div class="tab-content active" id="aboutContent">
+        <div class="about-section">
+            <h2>About BMW India</h2>
+            <p>
+                BMW Group India Private Limited is a 100% subsidiary of the BMW Group, one of the world's most successful
+                premium manufacturers of automobiles and motorcycles. Established in India in 2006, BMW has grown to become
+                one of the most recognized and respected premium automotive brands in the country.
+            </p>
+            <p>
+                BMW India operates through a network of authorized dealerships across the country, offering sales, service,
+                and parts. Our commitment is to bring the ultimate driving machine experience to every customer in India,
+                combining German engineering with personalized service.
+            </p>
+            <p>
+                Our mission is simple — to provide sheer driving pleasure. Whether it's a powerful M Sport, a versatile SAV,
+                or an exciting electric vehicle, every BMW is crafted to deliver an exceptional experience on the road.
+            </p>
+
+            <!-- stat counters -->
+            <div class="stats-row">
+                <div class="stat-box">
+                    <h3>107+</h3>
+                    <p>Years of Excellence</p>
+                </div>
+                <div class="stat-box">
+                    <h3>50+</h3>
+                    <p>Models Available</p>
+                </div>
+                <div class="stat-box">
+                    <h3>30+</h3>
+                    <p>Dealerships in India</p>
+                </div>
+                <div class="stat-box">
+                    <h3>1 Lakh+</h3>
+                    <p>Happy Customers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEEDBACK content -->
+    <div class="tab-content" id="feedbackContent">
+        <div class="feedback-form">
+            <h2>Share Your Feedback</h2>
+
+            <!-- star rating widget -->
+            <div class="star-rating">
+                <label>Rate your BMW experience</label>
+                <div class="stars">
+                    <span class="star" onclick="setRating(1)">&#9733;</span>
+                    <span class="star" onclick="setRating(2)">&#9733;</span>
+                    <span class="star" onclick="setRating(3)">&#9733;</span>
+                    <span class="star" onclick="setRating(4)">&#9733;</span>
+                    <span class="star" onclick="setRating(5)">&#9733;</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label>Your Message</label>
+                <textarea placeholder="Tell us about your experience with BMW..."></textarea>
+            </div>
+            <button class="btn-blue" onclick="submitFeedback()">Submit Feedback</button>
+            <p id="feedbackMsg" style="color: #27ae60; margin-top: 12px; display: none; font-size: 14px;">
+                Thank you! Your feedback has been submitted.
+            </p>
+        </div>
+    </div>
+
+    <!-- FAQ content -->
+    <div class="tab-content" id="faqContent">
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    How can I book a BMW test drive?
+                    <span class="arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    You can book a test drive by visiting your nearest BMW dealership or by filling out the test drive
+                    request form on our website. Our team will contact you to schedule a convenient time.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    What is the warranty on a new BMW?
+                    <span class="arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    All new BMW vehicles come with a standard 2-year unlimited mileage warranty. Extended warranty options
+                    are also available through BMW Service inclusive packages.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Does BMW offer financing options in India?
+                    <span class="arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    Yes, BMW Financial Services India offers a range of financing products including retail loans, leasing
+                    options, and balloon financing. You can explore these at your dealership or through our website.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    How do I service my BMW?
+                    <span class="arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    BMW vehicles come with a Condition Based Service (CBS) system that monitors when your car needs
+                    servicing. You can book a service appointment online or by calling your nearest authorized BMW Service Centre.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    What electric vehicles does BMW offer in India?
+                    <span class="arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    BMW currently offers the iX xDrive50 and i4 eDrive40 in India. These fully electric vehicles deliver
+                    an impressive range and are supported by home charging solutions as well as public charging networks.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Can I customize my BMW before purchase?
+                    <span class="arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    Yes! BMW offers an Individual program that lets you personalize your vehicle with exclusive exterior
+                    colors, interior trims, and optional features. Speak to your dealer to explore personalization options.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFAQ(this)">
+                    Where are BMW service centres located in India?
+                    <span class="arrow">&#9660;</span>
+                </button>
+                <div class="faq-answer">
+                    BMW has over 30 authorized service centres across India in cities including Mumbai, Delhi, Bangalore,
+                    Chennai, Hyderabad, Pune, Kolkata, and more. Use the dealer locator on our website to find the nearest one.
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- same footer as home page -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <img src="BMW_White_Logo.svg.asset.1670245093434.svg" alt="BMW Logo" class="footer-logo">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="category.html">All Models</a>
+                <a href="payment.html">Online Shop</a>
+                <a href="about.html">More BMW</a>
+                <a href="login.html">Login</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BMW India. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        var currentRating = 0;
+
+        // switch between About, Feedback, FAQ tabs
+        function showSection(section) {
+            // hide all content sections
+            document.getElementById('aboutContent').classList.remove('active');
+            document.getElementById('feedbackContent').classList.remove('active');
+            document.getElementById('faqContent').classList.remove('active');
+
+            // remove active from all tab buttons
+            document.getElementById('aboutTab').classList.remove('active');
+            document.getElementById('feedbackTab').classList.remove('active');
+            document.getElementById('faqTab').classList.remove('active');
+
+            // show selected content
+            if (section === 'about') {
+                document.getElementById('aboutContent').classList.add('active');
+                document.getElementById('aboutTab').classList.add('active');
+            } else if (section === 'feedback') {
+                document.getElementById('feedbackContent').classList.add('active');
+                document.getElementById('feedbackTab').classList.add('active');
+            } else {
+                document.getElementById('faqContent').classList.add('active');
+                document.getElementById('faqTab').classList.add('active');
+            }
+        }
+
+        // set star rating
+        function setRating(rating) {
+            currentRating = rating;
+            var stars = document.querySelectorAll('.star');
+            for (var i = 0; i < stars.length; i++) {
+                if (i < rating) {
+                    stars[i].classList.add('selected');
+                } else {
+                    stars[i].classList.remove('selected');
+                }
+            }
+        }
+
+        // submit feedback (just shows a thank you message)
+        function submitFeedback() {
+            document.getElementById('feedbackMsg').style.display = 'block';
+        }
+
+        // toggle FAQ accordion open/close
+        function toggleFAQ(btn) {
+            var answer = btn.nextElementSibling;
+            var isOpen = answer.classList.contains('open');
+
+            // close all open FAQs first
+            var allAnswers = document.querySelectorAll('.faq-answer');
+            var allBtns = document.querySelectorAll('.faq-question');
+            for (var i = 0; i < allAnswers.length; i++) {
+                allAnswers[i].classList.remove('open');
+                allBtns[i].classList.remove('open');
+            }
+
+            // if it was closed, open it
+            if (!isOpen) {
+                answer.classList.add('open');
+                btn.classList.add('open');
+            }
+        }
+    </script>
+
+</body>
+
+</html>
