@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg px-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href=".">
+                <img class="img-fluid" src="./ChatGPT Image May 18, 2026, 01_48_18 PM (1).png" height="40px"
+                    width="50px" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="cars.html">Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#000000">
+                        <path
+                            d="M367-527q-47-47-47-113t47-113q47-47 113-47t113 47q47 47 47 113t-47 113q-47 47-113 47t-113-47ZM160-160v-112q0-34 17.5-62.5T224-378q62-31 126-46.5T480-440q66 0 130 15.5T736-378q29 15 46.5 43.5T800-272v112H160Zm80-80h480v-32q0-11-5.5-20T700-306q-54-27-109-40.5T480-360q-56 0-111 13.5T260-306q-9 5-14.5 14t-5.5 20v32Zm296.5-343.5Q560-607 560-640t-23.5-56.5Q513-720 480-720t-56.5 23.5Q400-673 400-640t23.5 56.5Q447-560 480-560t56.5-23.5ZM480-640Zm0 400Z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <!--Slideshow-->
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" px-5>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images.jpg" class="d-block w-100" alt="BMW">
+            </div>
+            <div class="carousel-item">
+                <img src="bugatti.jpg" class="d-block w-100" alt="Bugatti">
+            </div>
+            <div class="carousel-item">
+                <img src="Koenigsegg.jpg" class="d-block w-100" alt="Koenigsegg">
+            </div>
+            <div class="carousel-item">
+                <img src="mercedes.jpg" class="d-block w-100" alt="Mercedes">
+            </div>
+        </div>
+        <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button> -->
+    </div>
+
+    <!--Cards-->
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Top Brands</h2>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+
+            <!-- BMW -->
+            <div class="col">
+                <div class="card shadow text-center h-100">
+                    <img src="./images.jpg" class="card-img-top p-3" alt="BMW">
+
+                    <div class="card-body">
+                        <h5 class="card-title">BMW</h5>
+
+                        <p class="card-text">
+                            Luxury, performance, and innovation combined into one driving experience.
+                        </p>
+
+                        <a href="#" class="btn btn-dark">
+                            View Cars
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercedes -->
+            <div class="col">
+                <div class="card shadow text-center h-100">
+                    <img src="mercedes.jpg" class="card-img-top p-3" alt="Mercedes">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Mercedes</h5>
+
+                        <p class="card-text">
+                            Premium comfort and advanced technology with timeless elegance.
+                        </p>
+
+                        <a href="#" class="btn btn-dark">
+                            View Cars
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bugatti -->
+            <div class="col">
+                <div class="card shadow text-center h-100">
+                    <img src="bugatti.jpg" class="card-img-top p-3" alt="Bugatti">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Bugatti</h5>
+
+                        <p class="card-text">
+                            Extreme speed, exclusivity, and world-class hypercar engineering.
+                        </p>
+
+                        <a href="#" class="btn btn-dark">
+                            View Cars
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Koenigsegg -->
+            <div class="col">
+                <div class="card shadow text-center h-100">
+                    <img src="Koenigsegg.jpg" class="card-img-top p-3" alt="Koenigsegg">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Koenigsegg</h5>
+
+                        <p class="card-text">
+                            Revolutionary hypercars built for ultimate power and precision.
+                        </p>
+
+                        <a href="#" class="btn btn-dark">
+                            View Cars
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Our Premium Services Section-->
+    <div class="container mt-5">
+        <h2 class="text-center mb-5">Our Premium Services</h2>
+
+        <div class="row g-4">
+
+            <!-- Service 1 -->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+                    <div class="card-body">
+                        <h1>🚗</h1>
+
+                        <h5 class="card-title mt-3">
+                            Test Drive
+                        </h5>
+
+                        <p class="card-text">
+                            Experience your dream car before buying.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+                    <div class="card-body">
+                        <h1>💳</h1>
+
+                        <h5 class="card-title mt-3">
+                            Car Financing
+                        </h5>
+
+                        <p class="card-text">
+                            Flexible EMI and finance options available.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+                    <div class="card-body">
+                        <h1>🛠️</h1>
+
+                        <h5 class="card-title mt-3">
+                            Car Service
+                        </h5>
+
+                        <p class="card-text">
+                            Professional maintenance and repair service.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+                    <div class="card-body">
+                        <h1>🛡️</h1>
+
+                        <h5 class="card-title mt-3">
+                            Insurance
+                        </h5>
+
+                        <p class="card-text">
+                            Secure and affordable insurance plans.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+                    <div class="card-body">
+                        <h1>🔧</h1>
+
+                        <h5 class="card-title mt-3">
+                            Custom Modifications
+                        </h5>
+
+                        <p class="card-text">
+                            Upgrade your car with premium accessories.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+                    <div class="card-body">
+                        <h1>📋</h1>
+
+                        <h5 class="card-title mt-3">
+                            Documentation
+                        </h5>
+
+                        <p class="card-text">
+                            Hassle-free RC transfer and paperwork support.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 7 -->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+                    <div class="card-body">
+                        <h1>🚘</h1>
+
+                        <h5 class="card-title mt-3">
+                            Car Rental
+                        </h5>
+
+                        <p class="card-text">
+                            Rent luxury and sports cars at best prices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 8 -->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+                    <div class="card-body">
+                        <h1>⛽</h1>
+
+                        <h5 class="card-title mt-3">
+                            Fuel Efficient Cars
+                        </h5>
+
+                        <p class="card-text">
+                            Find eco-friendly and fuel-saving vehicles.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+    </div>
+
+    <!--Why Choose Us Section-->
+    <div class="container mt-5">
+        <h2 class="text-center mb-5">Why Choose Us</h2>
+
+        <div class="row g-4">
+
+            <!-- Service 1 -->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+                    <div class="card-body">
+                        <h1>🚗</h1>
+
+                        <h5 class="card-title mt-3">
+                            Wide Selection
+                        </h5>
+
+                        <p class="card-text">
+                            Choose from 100+ luxury and sports cars.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2-->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+
+                    <div class="card-body">
+
+                        <h1>🤝</h1>
+
+                        <h5 class="card-title mt-3">
+                            Trusted Dealers
+                        </h5>
+
+                        <p class="card-text">
+                            We have more than 100+ trusted dealers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Service 3-->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+
+                    <div class="card-body">
+
+                        <h1>💰</h1>
+
+                        <h5 class="card-title mt-3">
+                            Affordable Prices
+                        </h5>
+
+                        <p class="card-text">
+                            Best price for every car.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--Service 4-->
+            <div class="col-md-3">
+                <div class="card shadow text-center h-100 p-3">
+
+                    <div class="card-body">
+
+                        <h1>✨</h1>
+
+                        <h5 class="card-title mt-3">
+                            Premium Quality
+                        </h5>
+
+                        <p class="card-text">
+                            We assure quality in every car.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="container mt-5">
+        <h2 class="text-center mb-5">Frequently Asked Questions</h2>
+
+        <div class="accordion" id="accordionExample">
+
+            <!-- 1 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        How to book test drive?
+                    </button>
+                </h2>
+
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        You can easily book a test drive by contacting us or filling out the booking form on our
+                        website.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Do you provide EMI?
+                    </button>
+                </h2>
+
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        Yes, we provide easy EMI and finance options for selected cars.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Is insurance included?
+                    </button>
+                </h2>
+
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        Yes, insurance options are available with all vehicle purchases.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Can I buy cars online?
+                    </button>
+                </h2>
+
+                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        Yes, online booking is available for all vehicles.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Do you sell used cars?
+                    </button>
+                </h2>
+
+                <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        Yes, we offer certified and well-maintained used cars.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSix">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Do you provide home delivery?
+                    </button>
+                </h2>
+
+                <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        Yes, we offer home delivery in select locations.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingSeven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        Are luxury cars available?
+                    </button>
+                </h2>
+
+                <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        Yes, luxury and premium models are available in our collection.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEight">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        Can I compare different cars?
+                    </button>
+                </h2>
+
+                <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        Yes, you can compare specs and prices on our compare page.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingNine">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+                        Do you provide warranty?
+                    </button>
+                </h2>
+
+                <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        Yes, warranty options are available for selected vehicles.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTen">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+                        What payment methods do you accept?
+                    </button>
+                </h2>
+
+                <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        We accept cash, bank transfer, EMI, and online payments.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingEleven">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+                        Can I customize my car?
+                    </button>
+                </h2>
+
+                <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        Yes, customization options and accessories are available for many models.
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12 -->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwelve">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+                        Do you offer customer support?
+                    </button>
+                </h2>
+
+                <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve"
+                    data-bs-parent="#accordionExample">
+
+                    <div class="accordion-body">
+                        Yes, we offer 24/7 customer support for all queries and concerns.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="mt-5 container">
+        <div class="row">
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Cars</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Brands</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About US</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Contact US</a></li>
+                </ul>
+            </div>
+            <div class="col-md-5 offset-md-5 mb-3">
+                <form>
+                    <h5>Subscribe to our newsletter</h5>
+                    <p>Monthly digest of what's new and exciting from us.</p>
+                    <div class="d-flex flex-column flex-sm-row w-100 gap-2"> <label for="newsletter1"
+                            class="visually-hidden">Email address</label> <input id="newsletter1" type="email"
+                            class="form-control" placeholder="Email address"> <button class="btn btn-primary"
+                            type="button">Subscribe</button> </div>
+                </form>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 border-top">
+            <p>© 2025 Company, Inc. All rights reserved.</p>
+            <ul class="list-unstyled d-flex">
+                <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Instagram"><svg class="bi"
+                            width="24" height="24">
+                            <use xlink:href="#instagram"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Facebook"><svg class="bi" width="24"
+                            height="24" aria-hidden="true">
+                            <use xlink:href="#facebook"></use>
+                        </svg></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!--Boostrap Js Link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
