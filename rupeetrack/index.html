@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ledger — Money Tracker</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Mono:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+</head>
+
+<body>
+
+    <!-- Grain overlay -->
+    <div class="grain"></div>
+
+    <!-- Header -->
+    <header class="flex items-center gap-8 px-12 py-5 border-b border-border sticky top-0 bg-black bg-opacity-95 backdrop-blur-2xl z-100">
+        <div class="logo">KP<span> · money tracker</span></div>
+        <nav class="tab-nav flex gap-1 flex-1">
+            <button class="tab-btn active px-[18px] py-2 bg-transparent border border-transparent rounded-sm text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all hover:text-text hover:border-border active:bg-gold active:border-gold active:text-black" data-tab="dashboard">Dashboard</button>
+            <button class="tab-btn px-[18px] py-2 bg-transparent border border-transparent rounded-sm text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all hover:text-text hover:border-border active:bg-gold active:border-gold active:text-black" data-tab="transactions">Transactions</button>
+            <button class="tab-btn px-[18px] py-2 bg-transparent border border-transparent rounded-sm text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all hover:text-text hover:border-border active:bg-gold active:border-gold active:text-black" data-tab="budgets">Budgets</button>
+            <button class="tab-btn px-[18px] py-2 bg-transparent border border-transparent rounded-sm text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all hover:text-text hover:border-border active:bg-gold active:border-gold active:text-black" data-tab="analytics">Analytics</button>
+        </nav>
+        <div class="header-date text-xs text-muted tracking-widest uppercase whitespace-nowrap" id="headerDate"></div>
+    </header>
+
+    <main>
+
+        <!-- ═══════════════════════════════════════ DASHBOARD TAB -->
+        <section class="tab-panel active" id="tab-dashboard">
+
+            <div class="summary-grid grid grid-cols-3 gap-5 mb-12">
+                <div class="card balance">
+                    <div class="card-label">Net Balance</div>
+                    <div class="card-amount" id="balanceAmt">₹0</div>
+                    <div class="card-sub" id="balanceSub">All time</div>
+                </div>
+                <div class="card income">
+                    <div class="card-label">Total Income</div>
+                    <div class="card-amount" id="incomeAmt">₹0</div>
+                    <div class="card-sub" id="incomeSub">0 transactions</div>
+                </div>
+                <div class="card expense">
+                    <div class="card-label">Total Expenses</div>
+                    <div class="card-amount" id="expenseAmt">₹0</div>
+                    <div class="card-sub" id="expenseSub">0 transactions</div>
+                </div>
+            </div>
+
+            <!-- Quick Add -->
+            <div class="section-header flex items-baseline gap-4 mb-6">
+                <div class="section-title">Quick Add</div>
+                <div class="section-line flex-1 h-px bg-border"></div>
+            </div>
+
+            <div class="add-form" id="quickAddForm">
+                <div class="form-row flex flex-wrap gap-4 items-end">
+                    <div class="field">
+                        <label>Description</label>
+                        <input type="text" id="txDesc" placeholder="e.g. Salary, Groceries…" autocomplete="off" />
+                    </div>
+                    <div class="field">
+                        <label>Amount (₹)</label>
+                        <input type="number" id="txAmount" placeholder="0.00" min="0" step="0.01" />
+                    </div>
+                    <div class="field">
+                        <label>Category</label>
+                        <select id="txCategory">
+                            <option value="General">📌 General</option>
+                            <option value="Food">🍽 Food</option>
+                            <option value="Transport">🚗 Transport</option>
+                            <option value="Shopping">🛍 Shopping</option>
+                            <option value="Entertainment">🎬 Entertainment</option>
+                            <option value="Health">💊 Health</option>
+                            <option value="Housing">🏠 Housing</option>
+                            <option value="Salary">💼 Salary</option>
+                            <option value="Investment">📈 Investment</option>
+                            <option value="Other">🗂 Other</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Date & Time</label>
+                        <input type="datetime-local" id="txDatetime" />
+                    </div>
+                    <div class="field">
+                        <label>Type</label>
+                        <div class="type-toggle flex border border-border rounded-sm overflow-hidden h-10">
+                            <button class="type-btn active-income flex-1 px-2.5 bg-transparent border-none text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all" id="btnIncome" onclick="setType('income')">+
+                                Income</button>
+                            <button class="type-btn flex-1 px-2.5 bg-transparent border-none text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all" id="btnExpense" onclick="setType('expense')">− Expense</button>
+                        </div>
+                    </div>
+                    <button class="submit-btn" onclick="addTransaction()">Add →</button>
+                </div>
+            </div>
+
+            <!-- Recent Transactions (last 5) -->
+            <div class="section-header flex items-baseline gap-4 mb-6">
+                <div class="section-title">Recent Activity</div>
+                <div class="section-line flex-1 h-px bg-border"></div>
+                <button class="text-link" onclick="switchTab('transactions')">View all →</button>
+            </div>
+            <table class="transactions-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Date & Time</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="recentTxBody"></tbody>
+            </table>
+
+            <!-- Monthly Chart -->
+            <div class="chart-section">
+                <div class="section-header flex items-baseline gap-4 mb-6">
+                    <div class="section-title">Monthly Overview</div>
+                    <div class="section-line flex-1 h-px bg-border"></div>
+                </div>
+                <div class="chart-wrap">
+                    <div class="bar-chart flex items-end gap-2 h-[140px] mb-2" id="barChart"></div>
+                    <div class="chart-legend flex gap-6 mt-4">
+                        <div class="legend-item flex items-center gap-2 text-xs text-muted tracking-tight uppercase">
+                            <div class="legend-dot income w-2 h-2 rounded-full"></div>Income
+                        </div>
+                        <div class="legend-item flex items-center gap-2 text-xs text-muted tracking-tight uppercase">
+                            <div class="legend-dot expense w-2 h-2 rounded-full"></div>Expenses
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ═══════════════════════════════════════ TRANSACTIONS TAB -->
+        <section class="tab-panel" id="tab-transactions">
+
+            <!-- Add form (full) -->
+            <div class="section-header flex items-baseline gap-4 mb-6">
+                <div class="section-title">Add Transaction</div>
+                <div class="section-line flex-1 h-px bg-border"></div>
+            </div>
+            <div class="add-form">
+                <div class="form-row flex flex-wrap gap-4 items-end">
+                    <div class="field">
+                        <label>Description</label>
+                        <input type="text" id="t2Desc" placeholder="e.g. Salary, Groceries…" autocomplete="off" />
+                    </div>
+                    <div class="field">
+                        <label>Amount (₹)</label>
+                        <input type="number" id="t2Amount" placeholder="0.00" min="0" step="0.01" />
+                    </div>
+                    <div class="field">
+                        <label>Category</label>
+                        <select id="t2Category">
+                            <option value="General">📌 General</option>
+                            <option value="Food">🍽 Food</option>
+                            <option value="Transport">🚗 Transport</option>
+                            <option value="Shopping">🛍 Shopping</option>
+                            <option value="Entertainment">🎬 Entertainment</option>
+                            <option value="Health">💊 Health</option>
+                            <option value="Housing">🏠 Housing</option>
+                            <option value="Salary">💼 Salary</option>
+                            <option value="Investment">📈 Investment</option>
+                            <option value="Other">🗂 Other</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Date & Time</label>
+                        <input type="datetime-local" id="t2Datetime" />
+                    </div>
+                    <div class="field">
+                        <label>Type</label>
+                        <div class="type-toggle flex border border-border rounded-sm overflow-hidden h-10">
+                            <button class="type-btn active-income flex-1 px-2.5 bg-transparent border-none text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all" id="t2BtnIncome" onclick="setType2('income')">+
+                                Income</button>
+                            <button class="type-btn flex-1 px-2.5 bg-transparent border-none text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all" id="t2BtnExpense" onclick="setType2('expense')">− Expense</button>
+                        </div>
+                    </div>
+                    <button class="submit-btn" onclick="addTransaction2()">Add →</button>
+                </div>
+            </div>
+
+            <!-- Filter bar -->
+            <div class="filter-bar flex items-end gap-2.5 mb-5 flex-wrap">
+                <button class="filter-btn active px-4 py-2 bg-transparent border border-border rounded-sm text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all" data-filter="all" onclick="setFilter('all', this)">All</button>
+                <button class="filter-btn px-4 py-2 bg-transparent border border-border rounded-sm text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all" data-filter="income" onclick="setFilter('income', this)">Income</button>
+                <button class="filter-btn px-4 py-2 bg-transparent border border-border rounded-sm text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all" data-filter="expense" onclick="setFilter('expense', this)">Expenses</button>
+                <div class="filter-spacer flex-1"></div>
+                <div class="field inline-field">
+                    <select id="filterCategory" onchange="renderTransactions()">
+                        <option value="">All Categories</option>
+                        <option value="General">General</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Health">Health</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Investment">Investment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="field inline-field">
+                    <input type="date" id="filterFrom" onchange="renderTransactions()" placeholder="From"
+                        title="From date" />
+                </div>
+                <div class="field inline-field">
+                    <input type="date" id="filterTo" onchange="renderTransactions()" placeholder="To" title="To date" />
+                </div>
+                <input class="search-input w-44 bg-surface2 border border-border rounded-sm text-text font-mono text-xs py-2 px-3 outline-none transition-colors" id="searchInput" type="text" placeholder="Search…"
+                    oninput="renderTransactions()" />
+            </div>
+
+            <div class="tx-stats-bar flex gap-5 mb-3.5 text-xs text-muted tracking-tighter flex-wrap" id="txStatsBar"></div>
+
+            <table class="transactions-table w-full border-collapse">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Date & Time</th>
+                        <th>Category</th>
+                        <th>Amount</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="txBody"></tbody>
+            </table>
+        </section>
+
+        <!-- ═══════════════════════════════════════ BUDGETS TAB -->
+        <section class="tab-panel" id="tab-budgets">
+
+            <div class="section-header flex items-baseline gap-4 mb-6">
+                <div class="section-title">Set Budget</div>
+                <div class="section-line flex-1 h-px bg-border"></div>
+            </div>
+
+            <div class="add-form">
+                <div class="form-row budget-row flex flex-wrap gap-4 items-end">
+                    <div class="field">
+                        <label>Category</label>
+                        <select id="budgetCategory">
+                            <option value="General">📌 General</option>
+                            <option value="Food">🍽 Food</option>
+                            <option value="Transport">🚗 Transport</option>
+                            <option value="Shopping">🛍 Shopping</option>
+                            <option value="Entertainment">🎬 Entertainment</option>
+                            <option value="Health">💊 Health</option>
+                            <option value="Housing">🏠 Housing</option>
+                            <option value="Salary">💼 Salary</option>
+                            <option value="Investment">📈 Investment</option>
+                            <option value="Other">🗂 Other</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Monthly Budget (₹)</label>
+                        <input type="number" id="budgetAmount" placeholder="0.00" min="0" step="0.01" />
+                    </div>
+                    <div class="field">
+                        <label>Period</label>
+                        <select id="budgetPeriod">
+                            <option value="monthly">Monthly</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </div>
+                    <button class="submit-btn" onclick="addBudget()">Set Budget →</button>
+                </div>
+            </div>
+
+            <div class="section-header flex items-baseline gap-4 mb-6">
+                <div class="section-title">Budget Tracker</div>
+                <div class="section-line flex-1 h-px bg-border"></div>
+                <div class="header-date text-xs text-muted tracking-widest uppercase whitespace-nowrap" id="budgetMonth"></div>
+            </div>
+
+            <div class="budget-grid grid grid-cols-[repeat(auto-fill,minmax(280px,1fr))] gap-4" id="budgetGrid">
+                <div class="empty-state text-center py-16 px-6 text-muted">
+                    <div class="empty-icon text-3xl mb-4 opacity-40">📊</div>
+                    <p class="text-xs tracking-tight">No budgets set yet. Add one above.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════ ANALYTICS TAB -->
+        <section class="tab-panel" id="tab-analytics">
+
+            <div class="analytics-controls flex gap-4 mb-10 items-end">
+                <div class="field inline-field">
+                    <label>Period</label>
+                    <select id="analyticsPeriod" onchange="renderAnalytics()">
+                        <option value="this_month">This Month</option>
+                        <option value="last_month">Last Month</option>
+                        <option value="last_3">Last 3 Months</option>
+                        <option value="last_6">Last 6 Months</option>
+                        <option value="this_year">This Year</option>
+                        <option value="all">All Time</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Income vs Expense breakdown by category -->
+            <div class="analytics-grid grid grid-cols-2 gap-6">
+
+                <div class="analytics-card bg-surface border border-border rounded-sm p-6">
+                    <div class="section-header flex items-baseline gap-4 mb-6">
+                        <div class="section-title">Expense by Category</div>
+                        <div class="section-line flex-1 h-px bg-border"></div>
+                    </div>
+                    <div id="expenseCategoryChart"></div>
+                </div>
+
+                <div class="analytics-card bg-surface border border-border rounded-sm p-6">
+                    <div class="section-header flex items-baseline gap-4 mb-6">
+                        <div class="section-title">Income by Category</div>
+                        <div class="section-line flex-1 h-px bg-border"></div>
+                    </div>
+                    <div id="incomeCategoryChart"></div>
+                </div>
+
+            </div>
+
+            <!-- Category breakdown table -->
+            <div class="section-header flex items-baseline gap-4 mb-6 mt-12">
+                <div class="section-title">Full Category Breakdown</div>
+                <div class="section-line flex-1 h-px bg-border"></div>
+            </div>
+            <div id="categoryBreakdownTable"></div>
+
+            <!-- Day-of-week spending -->
+            <div class="section-header flex items-baseline gap-4 mb-6 mt-12">
+                <div class="section-title">Spending by Day of Week</div>
+                <div class="section-line flex-1 h-px bg-border"></div>
+            </div>
+            <div class="chart-wrap bg-surface border border-border rounded-sm p-7">
+                <div class="bar-chart flex items-end gap-2 h-[140px] mb-2" id="dowChart"></div>
+            </div>
+
+            <!-- Hourly spending -->
+            <div class="section-header flex items-baseline gap-4 mb-6 mt-12">
+                <div class="section-title">Spending by Hour</div>
+                <div class="section-line flex-1 h-px bg-border"></div>
+            </div>
+            <div class="chart-wrap bg-surface border border-border rounded-sm p-7">
+                <div class="hour-chart flex items-end gap-0.5 h-24 mb-2 overflow-x-auto pb-1" id="hourChart"></div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div class="toast" id="toast"></div>
+
+    <!-- Edit Modal -->
+    <div class="modal-overlay fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm z-[1000] hidden items-center justify-center" id="editModal">
+        <div class="modal bg-surface border border-border rounded-sm p-8 w-11/12 max-w-[860px] animate-fadeUp">
+            <div class="modal-header flex justify-between items-center mb-6">
+                <div class="modal-title font-serif text-xl font-bold">Edit Transaction</div>
+                <button class="modal-close bg-none border-none text-muted text-lg cursor-pointer p-1 transition-colors hover:text-red" onclick="closeModal()">✕</button>
+            </div>
+            <div class="form-row modal-form-row flex flex-wrap gap-4 items-end">
+                <div class="field">
+                    <label>Description</label>
+                    <input type="text" id="editDesc" />
+                </div>
+                <div class="field">
+                    <label>Amount (₹)</label>
+                    <input type="number" id="editAmount" min="0" step="0.01" />
+                </div>
+                <div class="field">
+                    <label>Category</label>
+                    <select id="editCategory">
+                        <option value="General">General</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Health">Health</option>
+                        <option value="Housing">Housing</option>
+                        <option value="Salary">Salary</option>
+                        <option value="Investment">Investment</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Date & Time</label>
+                    <input type="datetime-local" id="editDatetime" />
+                </div>
+                <div class="field">
+                    <label>Type</label>
+                    <div class="type-toggle flex border border-border rounded-sm overflow-hidden h-10">
+                        <button class="type-btn flex-1 px-2.5 bg-transparent border-none text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all" id="editBtnIncome" onclick="setEditType('income')">+ Income</button>
+                        <button class="type-btn flex-1 px-2.5 bg-transparent border-none text-muted font-mono text-xs tracking-widest uppercase cursor-pointer transition-all" id="editBtnExpense" onclick="setEditType('expense')">− Expense</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions flex gap-3 mt-6 justify-end">
+                <button class="submit-btn" onclick="saveEdit()">Save Changes</button>
+                <button class="cancel-btn px-5 py-2.5 bg-transparent border border-border rounded-sm text-muted font-mono text-xs font-medium tracking-widest uppercase cursor-pointer transition-all hover:border-muted hover:text-text" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
