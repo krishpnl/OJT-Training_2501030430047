@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | AutoLux</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./admin-styles.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg px-2 navbar-admin">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <img class="img-fluid" src="./ChatGPT Image May 18, 2026, 01_48_18 PM (1).png" height="40px"
+                    width="50px" alt="Logo">
+                <span class="brand-text">Admin Panel</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <span class="nav-link admin-user">
+                            <i class="fas fa-user-shield"></i> Admin
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Back to Site
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
+                                <path d="M200-200v-560h560v560H200Zm80-80h400v-400H280v400Zm0 0v-400 400Z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link logout-btn" href="#" onclick="logoutAdmin(event)">
+                            Logout
+                            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3">
+                                <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar & Main Content -->
+    <div class="container-fluid admin-container">
+        <div class="row">
+            <!-- Sidebar -->
+            <aside class="col-lg-3 sidebar">
+                <div class="sidebar-menu">
+                    <h5 class="menu-title">Menu</h5>
+                    <nav class="menu-list">
+                        <a href="#dashboard-section" class="menu-item active" data-section="dashboard">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="#cars-section" class="menu-item" data-section="cars">
+                            <i class="fas fa-car"></i>
+                            <span>Manage Cars</span>
+                        </a>
+                        <a href="#add-car-section" class="menu-item" data-section="add-car">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Add New Car</span>
+                        </a>
+                        <a href="#analytics-section" class="menu-item" data-section="analytics">
+                            <i class="fas fa-bar-chart"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </nav>
+                </div>
+                <div class="sidebar-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Total Cars</p>
+                            <p class="stat-value" id="total-cars">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <p class="stat-label">Available</p>
+                            <p class="stat-value" id="available-cars">0</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="col-lg-9 main-content">
+
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="content-section active">
+                    <div class="section-header">
+                        <h2>Dashboard Overview</h2>
+                        <p class="section-subtitle">Manage and monitor your car inventory</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="dashboard-card">
+                                <div class="card-icon total">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-label">Total Cars</p>
+                                    <h3 id="dash-total-cars">0</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="dashboard-card">
+                                <div class="card-icon available">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-label">Available</p>
+                                    <h3 id="dash-available-cars">0</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="dashboard-card">
+                                <div class="card-icon sold">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="card-content">
+                                    <p class="card-label">Sold</p>
+                                    <h3 id="dash-sold-cars">0</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+                        <h5>Quick Actions</h5>
+                        <button class="btn btn-action" onclick="switchSection('add-car')">
+                            <i class="fas fa-plus"></i> Add New Car
+                        </button>
+                        <button class="btn btn-action" onclick="switchSection('cars')">
+                            <i class="fas fa-list"></i> View All Cars
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Add Car Section -->
+                <section id="add-car-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Add New Car</h2>
+                        <p class="section-subtitle">Add a new car to your inventory</p>
+                    </div>
+
+                    <form id="add-car-form" class="admin-form">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="carBrand" class="form-label">Brand/Make</label>
+                                <input type="text" class="form-control" id="carBrand" placeholder="e.g., Toyota" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="carModel" class="form-label">Model</label>
+                                <input type="text" class="form-control" id="carModel" placeholder="e.g., Corolla" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="carYear" class="form-label">Year</label>
+                                <input type="number" class="form-control" id="carYear" placeholder="e.g., 2024" min="1990" max="2099" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="carColor" class="form-label">Color</label>
+                                <input type="text" class="form-control" id="carColor" placeholder="e.g., Black" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="carPrice" class="form-label">Price ($)</label>
+                                <input type="number" class="form-control" id="carPrice" placeholder="e.g., 25000" min="0" step="0.01" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="carMileage" class="form-label">Mileage (km)</label>
+                                <input type="number" class="form-control" id="carMileage" placeholder="e.g., 15000" min="0" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="carFuelType" class="form-label">Fuel Type</label>
+                                <select class="form-control" id="carFuelType" required>
+                                    <option value="">Select Fuel Type</option>
+                                    <option value="Petrol">Petrol</option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="Hybrid">Hybrid</option>
+                                    <option value="Electric">Electric</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="carTransmission" class="form-label">Transmission</label>
+                                <select class="form-control" id="carTransmission" required>
+                                    <option value="">Select Transmission</option>
+                                    <option value="Manual">Manual</option>
+                                    <option value="Automatic">Automatic</option>
+                                    <option value="CVT">CVT</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="carStatus" class="form-label">Status</label>
+                            <select class="form-control" id="carStatus" required>
+                                <option value="">Select Status</option>
+                                <option value="Available">Available</option>
+                                <option value="Sold">Sold</option>
+                                <option value="Maintenance">Maintenance</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="carDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="carDescription" rows="4" placeholder="Add car description..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary-admin">
+                                <i class="fas fa-save"></i> Add Car
+                            </button>
+                            <button type="reset" class="btn btn-secondary-admin">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                    </form>
+                </section>
+
+                <!-- Manage Cars Section -->
+                <section id="cars-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Manage Cars</h2>
+                        <div class="search-filter">
+                            <input type="text" id="searchCars" class="form-control" placeholder="Search by brand, model...">
+                            <select id="filterStatus" class="form-control">
+                                <option value="">All Status</option>
+                                <option value="Available">Available</option>
+                                <option value="Sold">Sold</option>
+                                <option value="Maintenance">Maintenance</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="cars-table-container">
+                        <table class="cars-table">
+                            <thead>
+                                <tr>
+                                    <th>Brand/Model</th>
+                                    <th>Year</th>
+                                    <th>Price</th>
+                                    <th>Mileage</th>
+                                    <th>Fuel Type</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cars-table-body">
+                                <tr>
+                                    <td colspan="7" class="text-center text-muted">No cars added yet</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Analytics & Reports</h2>
+                        <p class="section-subtitle">Inventory statistics and insights</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="analytics-card">
+                                <h5>Cars by Fuel Type</h5>
+                                <div id="fuel-type-stats" class="stats-list">
+                                    <p class="text-muted">No data available</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="analytics-card">
+                                <h5>Cars by Status</h5>
+                                <div id="status-stats" class="stats-list">
+                                    <p class="text-muted">No data available</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <div class="analytics-card">
+                                <h5>Price Range Analysis</h5>
+                                <div id="price-stats" class="stats-list">
+                                    <p class="text-muted">No data available</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Edit Car Modal -->
+    <div class="modal fade" id="editCarModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content modal-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Car Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-car-form" class="admin-form">
+                        <input type="hidden" id="editCarId">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="editCarBrand" class="form-label">Brand/Make</label>
+                                <input type="text" class="form-control" id="editCarBrand" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="editCarModel" class="form-label">Model</label>
+                                <input type="text" class="form-control" id="editCarModel" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="editCarYear" class="form-label">Year</label>
+                                <input type="number" class="form-control" id="editCarYear" min="1990" max="2099" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="editCarColor" class="form-label">Color</label>
+                                <input type="text" class="form-control" id="editCarColor" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="editCarPrice" class="form-label">Price ($)</label>
+                                <input type="number" class="form-control" id="editCarPrice" min="0" step="0.01" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="editCarMileage" class="form-label">Mileage (km)</label>
+                                <input type="number" class="form-control" id="editCarMileage" min="0" required>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="editCarFuelType" class="form-label">Fuel Type</label>
+                                <select class="form-control" id="editCarFuelType" required>
+                                    <option value="Petrol">Petrol</option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="Hybrid">Hybrid</option>
+                                    <option value="Electric">Electric</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="editCarTransmission" class="form-label">Transmission</label>
+                                <select class="form-control" id="editCarTransmission" required>
+                                    <option value="Manual">Manual</option>
+                                    <option value="Automatic">Automatic</option>
+                                    <option value="CVT">CVT</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editCarStatus" class="form-label">Status</label>
+                            <select class="form-control" id="editCarStatus" required>
+                                <option value="Available">Available</option>
+                                <option value="Sold">Sold</option>
+                                <option value="Maintenance">Maintenance</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="editCarDescription" class="form-label">Description</label>
+                            <textarea class="form-control" id="editCarDescription" rows="4"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary-admin" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary-admin" onclick="saveEditCar()">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-admin">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Delete</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete this car? This action cannot be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary-admin" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" onclick="confirmDelete()">
+                        <i class="fas fa-trash"></i> Delete Car
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Toast -->
+    <div class="alert-toast" id="alertToast">
+        <i class="fas fa-check-circle"></i>
+        <span id="alertMessage"></span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

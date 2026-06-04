@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EF Cars | AutoLux</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg px-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href=".">
+                <img class="img-fluid" src="./ChatGPT Image May 18, 2026, 01_48_18 PM (1).png" height="40px"
+                    width="50px" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="brands.html">Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    Login
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!--Hero Section-->
+    <div class="sub-hero text-white text-center">
+        <div class="container py-2">
+            <h1 class="display-4 fw-bold mb-3">Explore Our Cars</h1>
+            <p class="lead mb-4" style="max-width:650px;margin:0 auto;opacity:.85;">Discover luxury redefined with our
+                premium collection of new and used cars.</p>
+            <div class="d-flex gap-3 justify-content-center">
+                <a href="brands.html" class="btn btn-outline-light px-4">Browse Brands</a>
+                <a href="about.html" class="btn btn-outline-light px-4">About Us</a>
+            </div>
+        </div>
+    </div>
+
+    <!--Car Search Section-->
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form class="d-flex" role="search" aria-label="Search cars">
+                    <div class="input-group">
+                        <label for="carSearch" class="visually-hidden">Search Cars</label>
+                        <input id="carSearch" class="form-control" type="search" placeholder="Search cars..."
+                            aria-label="Search cars">
+                        <button class="btn btn-dark px-4" type="submit" aria-label="Submit search">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                                fill="#ffffff" aria-hidden="true">
+                                <path
+                                    d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Featured Cars-->
+    <div class="container mt-5" id="featured-cars">
+        <h2 class="text-center mb-2" id="cars-heading">Featured Cars</h2>
+        <p class="text-center text-muted mb-4" id="cars-subheading"></p>
+        <div class="text-center mb-4" id="back-btn-wrapper" style="display:none !important">
+            <a href="brands.html" class="btn btn-outline-dark">&larr; Back to Brands</a>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- BMW M3 Competition -->
+            <div class="col-sm-6 col-md-3" data-brand="BMW">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB4VzX34iY_92bTx0MoG-Tej95lwrd7iEi2Y8x7oF3VQ&s=10"
+                        class="card-img-top" alt="BMW M3 Competition" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-dark mb-2" style="width:fit-content;">BMW</span>
+                        <h5 class="card-title fw-bold mb-1">M3 Competition</h5>
+                        <p class="card-text small text-muted flex-grow-1">503 hp twin-turbo inline-6 · 0–60 mph in 3.9s
+                            · M-tuned suspension &amp; xDrive AWD.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$75,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMW M5 CS -->
+            <div class="col-sm-6 col-md-3" data-brand="BMW">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPGGYPh12qsTOj6Ga1Fs1G9mWTEjJ2lVdZNDgw8cZ1_g&s=10"
+                        class="card-img-top" alt="BMW M5 CS" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-dark mb-2" style="width:fit-content;">BMW</span>
+                        <h5 class="card-title fw-bold mb-1">M5 CS</h5>
+                        <p class="card-text small text-muted flex-grow-1">627 hp V8 biturbo · 0–60 in 2.9s · Lightest M5
+                            ever, carbon-ceramic brakes.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$142,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMW X5 M -->
+            <div class="col-sm-6 col-md-3" data-brand="BMW">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZDlkFa6LEMkRYR0fs1IrgAO9qC8rQ5TqYEsQqVpi8NA&s=10"
+                        class="card-img-top" alt="BMW X5 M" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-dark mb-2" style="width:fit-content;">BMW</span>
+                        <h5 class="card-title fw-bold mb-1">X5 M Competition</h5>
+                        <p class="card-text small text-muted flex-grow-1">617 hp twin-turbo V8 · 0–60 in 3.7s · Adaptive
+                            M suspension, panoramic roof.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$108,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BMW i8 -->
+            <div class="col-sm-6 col-md-3" data-brand="BMW">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoa-yVc2puNDX1gPfCiFwOHcAqeM7oObRxV5WURAvmENKoccveYp_lxFKc&s=10"
+                        class="card-img-top" alt="BMW i8" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge bg-dark mb-2" style="width:fit-content;">BMW</span>
+                        <h5 class="card-title fw-bold mb-1">i8 Roadster</h5>
+                        <p class="card-text small text-muted flex-grow-1">374 hp plug-in hybrid · 0–60 in 4.2s ·
+                            Butterfly doors, 18-mile electric range.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$165,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercedes AMG GT 63 S -->
+            <div class="col-sm-6 col-md-3" data-brand="Mercedes">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2sPwIq3TbseqwwjNeNYAWZHfpw4HsNeQqIV_-iW-tXQ&s=10"
+                        class="card-img-top" alt="Mercedes AMG GT 63 S" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#1a1a2e;">Mercedes</span>
+                        <h5 class="card-title fw-bold mb-1">AMG GT 63 S</h5>
+                        <p class="card-text small text-muted flex-grow-1">630 hp handcrafted V8 biturbo · 0–60 in 3.1s ·
+                            4-door coupe with AMG DYNAMIC PLUS.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$162,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercedes S-Class -->
+            <div class="col-sm-6 col-md-3" data-brand="Mercedes">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMQB3nCXJLnFFzLmwk-_3fLlykAKFJcQuqslTmWexmFA&s=10"
+                        class="card-img-top" alt="Mercedes S-Class" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#1a1a2e;">Mercedes</span>
+                        <h5 class="card-title fw-bold mb-1">S-Class 580</h5>
+                        <p class="card-text small text-muted flex-grow-1">496 hp V8 biturbo · Rear-axle steering · MBUX
+                            Hyperscreen &amp; massaging seats.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$115,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercedes AMG G63 -->
+            <div class="col-sm-6 col-md-3" data-brand="Mercedes">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3s1ZImUW5vo_L_LZa2tiHrhl6vDLm1PqceJEmLp6ORQ&s=10"
+                        class="card-img-top" alt="Mercedes AMG G63" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#1a1a2e;">Mercedes</span>
+                        <h5 class="card-title fw-bold mb-1">AMG G 63</h5>
+                        <p class="card-text small text-muted flex-grow-1">577 hp twin-turbo V8 · 0–60 in 4.5s · Iconic
+                            G-Wagen with AMG performance DNA.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$175,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercedes EQS -->
+            <div class="col-sm-6 col-md-3" data-brand="Mercedes">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwlnXidsaEnDLV18Dvmdcv9G-iLJto1JPMVNqb9UM2Iw&s=10"
+                        class="card-img-top" alt="Mercedes EQS" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#1a1a2e;">Mercedes</span>
+                        <h5 class="card-title fw-bold mb-1">EQS 580 4MATIC</h5>
+                        <p class="card-text small text-muted flex-grow-1">516 hp dual-motor EV · 350-mile range ·
+                            55-inch Hyperscreen, air suspension.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$105,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bugatti Chiron -->
+            <div class="col-sm-6 col-md-3" data-brand="Bugatti">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSuSsy3VZQV34s4RWeHSsYFgMx-Uh-VwPEcVuM0y1o_Q&s=10"
+                        class="card-img-top" alt="Bugatti Chiron" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#3b0764;">Bugatti</span>
+                        <h5 class="card-title fw-bold mb-1">Chiron Super Sport</h5>
+                        <p class="card-text small text-muted flex-grow-1">1,578 hp quad-turbo W16 · Top speed 273 mph ·
+                            Hand-built luxury hypercar.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$3,200,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bugatti Veyron -->
+            <div class="col-sm-6 col-md-3" data-brand="Bugatti">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU15BpxahSCA14_0fAyaHfFqt3xI9KHbhuPjWlUcOMVw&s=10"
+                        class="card-img-top" alt="Bugatti Veyron" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#3b0764;">Bugatti</span>
+                        <h5 class="card-title fw-bold mb-1">Veyron 16.4</h5>
+                        <p class="card-text small text-muted flex-grow-1">1,001 hp W16 engine · Top speed 253 mph · The
+                            car that redefined hypercar limits.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$1,900,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bugatti Divo -->
+            <div class="col-sm-6 col-md-3" data-brand="Bugatti">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB-yQUjXmsUe2Efz3nov1x_FfIBGa7kxKpIO5LZfhUYw&s=10"
+                        class="card-img-top" alt="Bugatti Divo" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#3b0764;">Bugatti</span>
+                        <h5 class="card-title fw-bold mb-1">Divo</h5>
+                        <p class="card-text small text-muted flex-grow-1">1,500 hp W16 · Only 40 units made · Focused on
+                            cornering over top speed.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$5,800,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bugatti Bolide -->
+            <div class="col-sm-6 col-md-3" data-brand="Bugatti">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc0fT3dulnDsPsQaR--0M6jxPFaX5O3bOKOMnKGXBi-A&s=10"
+                        class="card-img-top" alt="Bugatti Bolide" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#3b0764;">Bugatti</span>
+                        <h5 class="card-title fw-bold mb-1">Bolide</h5>
+                        <p class="card-text small text-muted flex-grow-1">1,850 hp W16 track beast · 0–60 in 2.2s ·
+                            Ultra-lightweight at just 1,240 kg.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$4,000,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Koenigsegg Agera RS -->
+            <div class="col-sm-6 col-md-3" data-brand="Koenigsegg">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://placehold.co/400x220/0d2b0d/ffffff?text=Agera+RS" class="card-img-top"
+                        alt="Koenigsegg Agera RS" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#134e13;">Koenigsegg</span>
+                        <h5 class="card-title fw-bold mb-1">Agera RS</h5>
+                        <p class="card-text small text-muted flex-grow-1">1,341 hp twin-turbo V8 · World record 277.9
+                            mph · Only 25 units produced.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$2,500,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Koenigsegg Jesko -->
+            <div class="col-sm-6 col-md-3" data-brand="Koenigsegg">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://placehold.co/400x220/153a15/ffffff?text=Jesko+Absolut" class="card-img-top"
+                        alt="Koenigsegg Jesko" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#134e13;">Koenigsegg</span>
+                        <h5 class="card-title fw-bold mb-1">Jesko Absolut</h5>
+                        <p class="card-text small text-muted flex-grow-1">1,600 hp V8 on E85 · Projected top speed 330
+                            mph · 9-speed Light Speed Transmission.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$2,800,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Koenigsegg Regera -->
+            <div class="col-sm-6 col-md-3" data-brand="Koenigsegg">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://placehold.co/400x220/0b260b/ffffff?text=Regera" class="card-img-top"
+                        alt="Koenigsegg Regera" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#134e13;">Koenigsegg</span>
+                        <h5 class="card-title fw-bold mb-1">Regera</h5>
+                        <p class="card-text small text-muted flex-grow-1">1,500 hp hybrid hypercar · 0–249 mph in 20s ·
+                            Transmission-less Direct Drive system.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$1,900,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Koenigsegg CC850 -->
+            <div class="col-sm-6 col-md-3" data-brand="Koenigsegg">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://placehold.co/400x220/1a4d1a/ffffff?text=CC850" class="card-img-top"
+                        alt="Koenigsegg CC850" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#134e13;">Koenigsegg</span>
+                        <h5 class="card-title fw-bold mb-1">CC850</h5>
+                        <p class="card-text small text-muted flex-grow-1">1,385 hp V8 twin-turbo · Manual + auto Engage
+                            Shift System · Only 50 units.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$3,700,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audi R8 V10 -->
+            <div class="col-sm-6 col-md-3" data-brand="Audi">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://placehold.co/400x220/1a0a00/ffffff?text=Audi+R8+V10" class="card-img-top"
+                        alt="Audi R8 V10" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#b8000a;">Audi</span>
+                        <h5 class="card-title fw-bold mb-1">R8 V10 Performance</h5>
+                        <p class="card-text small text-muted flex-grow-1">602 hp naturally aspirated V10 · 0–60 in 3.1s
+                            · Mid-engine supercar with Quattro AWD.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$198,500</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audi RS7 -->
+            <div class="col-sm-6 col-md-3" data-brand="Audi">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://placehold.co/400x220/1c0c00/ffffff?text=Audi+RS7" class="card-img-top"
+                        alt="Audi RS7" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#b8000a;">Audi</span>
+                        <h5 class="card-title fw-bold mb-1">RS 7 Sportback</h5>
+                        <p class="card-text small text-muted flex-grow-1">591 hp twin-turbo V8 · 0–60 in 3.5s · Sleek
+                            5-door fastback with sport exhaust.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$115,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audi e-tron GT RS -->
+            <div class="col-sm-6 col-md-3" data-brand="Audi">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://placehold.co/400x220/0a1e38/ffffff?text=e-tron+GT+RS" class="card-img-top"
+                        alt="Audi e-tron GT RS" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#b8000a;">Audi</span>
+                        <h5 class="card-title fw-bold mb-1">RS e-tron GT</h5>
+                        <p class="card-text small text-muted flex-grow-1">637 hp dual-motor EV · 0–60 in 3.1s · 298-mile
+                            range, 270 kW DC fast charging.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$142,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audi Q8 -->
+            <div class="col-sm-6 col-md-3" data-brand="Audi">
+                <div class="card shadow border-0 h-100">
+                    <img src="https://placehold.co/400x220/3b1500/ffffff?text=Audi+Q8" class="card-img-top"
+                        alt="Audi Q8" style="height:180px;object-fit:cover;">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2" style="width:fit-content;background:#b8000a;">Audi</span>
+                        <h5 class="card-title fw-bold mb-1">SQ8 TFSI</h5>
+                        <p class="card-text small text-muted flex-grow-1">500 hp twin-turbo V8 · 0–60 in 3.8s ·
+                            Luxurious SUV coupe with air suspension.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fw-bold text-danger fs-6">$90,000</span>
+                            <a href="#" class="btn btn-dark btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="mt-5 px-4">
+        <div class="row">
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a href="index.html" class="nav-link p-0 text-body-secondary">Home</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="brands.html" class="nav-link p-0 text-body-secondary">Brands</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="about.html" class="nav-link p-0 text-body-secondary">About US</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="contact.html" class="nav-link p-0 text-body-secondary">Contact US</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-5 offset-md-5 mb-3">
+                <form>
+                    <h5>Subscribe to our newsletter</h5>
+                    <p>Monthly digest of what's new and exciting from us.</p>
+                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                        <label for="newsletter1" class="visually-hidden">Email address</label>
+                        <input id="newsletter1" type="email" class="form-control" placeholder="Email address">
+                        <button class="btn btn-dark" type="submit"
+                            onclick="EmailValidation('newsletter1', 'emailerr')">Subscribe</button>
+                        <span id="emailerr" class="text-primary small"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 border-top">
+            <p>© 2026 AutoLux, Inc. All rights reserved.</p>
+            <ul class="list-unstyled d-flex">
+                <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Instagram"><svg class="bi"
+                            width="24" height="24">
+                            <use xlink:href="#instagram"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Facebook"><svg class="bi" width="24"
+                            height="24" aria-hidden="true">
+                            <use xlink:href="#facebook"></use>
+                        </svg></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!--Login Modal-->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 -lg rounded-4 overflow-hidden">
+                <div class="modal-header border-0 pb-0 position-relative"
+                    style="background:linear-gradient(135deg,#0a0a0a,#1a1a2e);">
+                    <div class="w-100 text-center pt-4 pb-3">
+                        <div style="font-size:2.8rem;">🔑</div>
+                        <h5 class="modal-title text-white fw-bold mt-2" id="loginModalLabel">Welcome Back</h5>
+                        <p class="text-white opacity-75 small mb-0">Sign in to your AutoLux account</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-4">
+                    <form id="loginForm" novalidate>
+                        <div class="mb-3">
+                            <label for="newsletter1" class="form-label fw-semibold">Email Address</label>
+                            <input id="loginEmail" type="email" class="form-control form-control-lg"
+                                placeholder="you@example.com" required>
+                            <span id="loginEmailErr" class="text-primary small"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label fw-semibold">Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control form-control-lg" id="loginPassword"
+                                    placeholder="Enter your password" required>
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword"
+                                    tabindex="-1">👁</button>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label text-muted small" for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="text-dark small fw-semibold">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-lg w-100 mb-3"
+                            onclick="return EmailValidation('loginEmail', 'loginEmailErr')">Sign In</button>
+                        <p class="text-center text-muted small mb-0">Don't have an account? <a href="#"
+                                class="text-dark fw-semibold">Register</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            var p = document.getElementById('loginPassword');
+            p.type = p.type === 'password' ? 'text' : 'password';
+        });
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (this.checkValidity()) {
+                this.innerHTML = '<p class="text-center text-success fw-bold py-3">✅ Signed in successfully!</p>';
+            } else { this.classList.add('was-validated'); }
+        });
+    </script>
+
+    <!--Boostrap Js Link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"></script>
+
+    <!-- Brand Filter Script -->
+    <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const brand = params.get('brand');
+
+            if (brand) {
+                // Update heading
+                document.getElementById('cars-heading').textContent = brand + ' Cars';
+                document.getElementById('cars-subheading').textContent =
+                    'Showing all ' + brand + ' vehicles in our collection.';
+
+                // Show back button
+                const backWrapper = document.getElementById('back-btn-wrapper');
+                backWrapper.style.removeProperty('display');
+                backWrapper.style.display = 'block';
+
+                // Filter cards
+                document.querySelectorAll('[data-brand]').forEach(function (col) {
+                    if (col.getAttribute('data-brand').toLowerCase() !== brand.toLowerCase()) {
+                        col.style.display = 'none';
+                    }
+                });
+            }
+        })();
+    </script>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

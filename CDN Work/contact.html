@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EF Cars | AutoLux</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-lg px-2">
+        <div class="container-fluid">
+            <a class="navbar-brand" href=".">
+                <img class="img-fluid" src="./ChatGPT Image May 18, 2026, 01_48_18 PM (1).png" height="40px"
+                    width="50px" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="brands.html">Brands</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Contact Us</a>
+                    </li>
+                </ul>
+                <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    Login
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!--Hero-->
+    <div class="sub-hero text-white text-center">
+        <div class="container py-2">
+            <h1 class="display-4 fw-bold mb-3">Contact Us</h1>
+            <p class="lead mb-0" style="max-width:580px;margin:0 auto;opacity:.85;">Have a question or ready to find
+                your perfect vehicle? Our team is here to help — reach out and we'll get back to you within 24 hours.
+            </p>
+        </div>
+    </div>
+
+    <!--Contact Info Cards-->
+    <div class="container mt-n3" style="margin-top:-1px;">
+        <div class="row g-4 justify-content-center mt-1">
+            <div class="col-sm-6 col-md-3">
+                <div class="card border-0 shadow text-center p-4 h-100">
+                    <div style="font-size:2.2rem;">📍</div>
+                    <h6 class="fw-bold mt-3 mb-1">Visit Us</h6>
+                    <p class="text-muted small mb-0">AutoLux Showroom<br>12 Prestige Boulevard<br>Dubai, UAE</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card border-0 shadow text-center p-4 h-100">
+                    <div style="font-size:2.2rem;">📞</div>
+                    <h6 class="fw-bold mt-3 mb-1">Call Us</h6>
+                    <p class="text-muted small mb-0">+971 4 000 1234<br>Mon – Sat, 9 AM – 7 PM<br>Sunday: 11 AM – 5 PM
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card border-0 shadow text-center p-4 h-100">
+                    <div style="font-size:2.2rem;">✉️</div>
+                    <h6 class="fw-bold mt-3 mb-1">Email Us</h6>
+                    <p class="text-muted small mb-0">hello@autolux.com<br>sales@autolux.com<br>support@autolux.com</p>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card border-0 shadow text-center p-4 h-100">
+                    <div style="font-size:2.2rem;">💬</div>
+                    <h6 class="fw-bold mt-3 mb-1">Live Chat</h6>
+                    <p class="text-muted small mb-2">Chat with our concierge team in real-time for instant support.</p>
+                    <a href="#" class="btn btn-dark btn-sm px-4">Start Chat</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Contact Form + Map-->
+    <div class="container my-5">
+        <div class="row g-5 align-items-start">
+
+            <!--Form-->
+            <div class="col-lg-7">
+                <span class="badge bg-dark mb-2 px-3 py-2" style="letter-spacing:2px;font-size:.7rem;">GET IN
+                    TOUCH</span>
+                <h2 class="fw-bold mb-1">Send Us a Message</h2>
+                <p class="text-muted mb-4">Fill in the form below and one of our specialists will be in touch shortly.
+                </p>
+                <form id="contactForm" novalidate>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="firstName" class="form-label fw-semibold">First Name <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="firstName" placeholder="James" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastName" class="form-label fw-semibold">Last Name <span
+                                    class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Reeves" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="contactEmail" class="form-label fw-semibold">Email Address <span
+                                    class="text-danger">*</span></label>
+                            <input type="email" class="form-control" id="contactEmail" placeholder="james@example.com"
+                                required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="contactPhone" class="form-label fw-semibold">Phone Number</label>
+                            <input type="tel" class="form-control" id="contactPhone" placeholder="+1 (555) 000-0000">
+                        </div>
+                        <div class="col-12">
+                            <label for="enquiryType" class="form-label fw-semibold">Enquiry Type <span
+                                    class="text-danger">*</span></label>
+                            <select class="form-select" id="enquiryType" required>
+                                <option value="" selected disabled>Select an option...</option>
+                                <option>Vehicle Purchase</option>
+                                <option>Test Drive Request</option>
+                                <option>Vehicle Valuation</option>
+                                <option>After-Sales Support</option>
+                                <option>General Enquiry</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="preferredBrand" class="form-label fw-semibold">Preferred Brand</label>
+                            <select class="form-select" id="preferredBrand">
+                                <option value="" selected disabled>Select a brand...</option>
+                                <option>BMW</option>
+                                <option>Mercedes</option>
+                                <option>Bugatti</option>
+                                <option>Koenigsegg</option>
+                                <option>Audi</option>
+                                <option>Other / Not Sure</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label for="contactMessage" class="form-label fw-semibold">Message <span
+                                    class="text-danger">*</span></label>
+                            <textarea class="form-control" id="contactMessage" rows="5"
+                                placeholder="Tell us about the vehicle you're looking for or how we can help..."
+                                required></textarea>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="consentCheck" required>
+                                <label class="form-check-label text-muted small" for="consentCheck">
+                                    I agree to be contacted by AutoLux regarding my enquiry. View our <a href="#"
+                                        class="text-dark">Privacy Policy</a>.
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-dark btn-lg px-5" id="submitBtn">Send Message</button>
+                        </div>
+                        <div class="col-12" id="formSuccess" style="display:none;">
+                            <div class="alert alert-success border-0 rounded-3" role="alert">
+                                ✅ <strong>Message sent!</strong> We'll get back to you within 24 hours.
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!--Map / Location-->
+            <div class="col-lg-5">
+                <span class="badge bg-dark mb-2 px-3 py-2" style="letter-spacing:2px;font-size:.7rem;">FIND US</span>
+                <h2 class="fw-bold mb-1">Our Location</h2>
+                <p class="text-muted mb-4">Come visit our showroom in person — we'd love to show you around.</p>
+                <div class="card overflow-hidden mb-4"
+                    style="height:280px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, var(--dark-blue), var(--bg-black));">
+                    <div class="text-center text-white p-4">
+                        <div style="font-size:4rem;">🗺️</div>
+                        <h5 class="fw-bold mt-2">AutoLux Dubai</h5>
+                        <p class="opacity-75 mb-2 small">12 Prestige Boulevard, Dubai, UAE</p>
+                        <a href="https://maps.google.com" target="_blank" class="btn btn-outline-light btn-sm px-4">Open
+                            in Google Maps</a>
+                    </div>
+                </div>
+                <div class="card p-4">
+                    <h6 class="fw-bold mb-3">🕐 Opening Hours</h6>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted small">Monday – Friday</span>
+                        <span class="fw-semibold small">9:00 AM – 7:00 PM</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="text-muted small">Saturday</span>
+                        <span class="fw-semibold small">9:00 AM – 6:00 PM</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <span class="text-muted small">Sunday</span>
+                        <span class="fw-semibold small">11:00 AM – 5:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--FAQ-->
+    <div class="py-5" style="border-top:1px solid var(--border-color);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-dark mb-2 px-3 py-2" style="letter-spacing:2px;font-size:.7rem;">FAQ</span>
+                <h2 class="fw-bold">Frequently Asked Questions</h2>
+                <p class="text-muted">Quick answers before you reach out.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button fw-semibold" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1">How do I book a test drive?</button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Simply fill out the contact form above, select
+                                    "Test Drive Request", choose your preferred brand, and our team will arrange a
+                                    convenient appointment at our showroom or deliver the vehicle to your location.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq2">Do you offer financing
+                                    options?</button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Yes. We work with leading financial institutions
+                                    to offer flexible financing packages tailored to each client. Speak with our sales
+                                    team to explore the best plan for your budget.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 rounded-4 overflow-hidden shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq3">Can I trade in my existing
+                                    vehicle?</button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Absolutely. We offer competitive trade-in
+                                    valuations. Submit your vehicle details via our contact form or visit the showroom
+                                    for an in-person appraisal by our certified engineers.</div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 rounded-4 overflow-hidden shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed fw-semibold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq4">Do you ship vehicles
+                                    internationally?</button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body text-muted">Yes, we ship to over 30 countries worldwide. Our
+                                    logistics team handles all customs documentation and ensures your vehicle arrives
+                                    safely and on time. Contact us for a shipping quote.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (this.checkValidity()) {
+                document.getElementById('submitBtn').disabled = true;
+                document.getElementById('submitBtn').textContent = 'Sending...';
+                setTimeout(function () {
+                    document.getElementById('formSuccess').style.display = 'block';
+                    document.getElementById('submitBtn').style.display = 'none';
+                }, 800);
+            } else {
+                this.classList.add('was-validated');
+            }
+        });
+    </script>
+
+    <!--Footer-->
+    <footer class="mt-5 px-4">
+        <div class="row">
+            <div class="col-6 col-md-2 mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a href="index.html" class="nav-link p-0 text-body-secondary">Home</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="brands.html" class="nav-link p-0 text-body-secondary">Brands</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="about.html" class="nav-link p-0 text-body-secondary">About US</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="contact.html" class="nav-link p-0 text-body-secondary">Contact US</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-5 offset-md-5 mb-3">
+                <form>
+                    <h5>Subscribe to our newsletter</h5>
+                    <p>Monthly digest of what's new and exciting from us.</p>
+                    <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                        <label for="newsletter1" class="visually-hidden">Email address</label>
+                        <input id="newsletter1" type="email" class="form-control" placeholder="Email address">
+                        <button class="btn btn-dark" type="submit"
+                            onclick="EmailValidation('newsletter1', 'emailerr')">Subscribe</button>
+                        <span id="emailerr" class="text-primary small"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="d-flex flex-column flex-sm-row justify-content-between pt-4 border-top">
+            <p>© 2026 AutoLux, Inc. All rights reserved.</p>
+            <ul class="list-unstyled d-flex">
+                <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Instagram"><svg class="bi"
+                            width="24" height="24">
+                            <use xlink:href="#instagram"></use>
+                        </svg></a></li>
+                <li class="ms-3"><a class="link-body-emphasis" href="#" aria-label="Facebook"><svg class="bi" width="24"
+                            height="24" aria-hidden="true">
+                            <use xlink:href="#facebook"></use>
+                        </svg></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!--Login Modal-->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 -lg rounded-4 overflow-hidden">
+                <div class="modal-header border-0 pb-0 position-relative"
+                    style="background:linear-gradient(135deg,#0a0a0a,#1a1a2e);">
+                    <div class="w-100 text-center pt-4 pb-3">
+                        <div style="font-size:2.8rem;">🔑</div>
+                        <h5 class="modal-title text-white fw-bold mt-2" id="loginModalLabel">Welcome Back</h5>
+                        <p class="text-white opacity-75 small mb-0">Sign in to your AutoLux account</p>
+                    </div>
+                    <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-3"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 pt-4">
+                    <form id="loginForm" novalidate>
+                        <div class="mb-3">
+                            <label for="newsletter1" class="form-label fw-semibold">Email Address</label>
+                            <input id="loginEmail" type="email" class="form-control form-control-lg"
+                                placeholder="you@example.com" required>
+                            <span id="loginEmailErr" class="text-primary small"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label fw-semibold">Password</label>
+                            <div class="input-group">
+                                <input type="password" class="form-control form-control-lg" id="loginPassword"
+                                    placeholder="Enter your password" required>
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword"
+                                    tabindex="-1">👁</button>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe">
+                                <label class="form-check-label text-muted small" for="rememberMe">Remember me</label>
+                            </div>
+                            <a href="#" class="text-dark small fw-semibold">Forgot Password?</a>
+                        </div>
+                        <button type="submit" class="btn btn-dark btn-lg w-100 mb-3"
+                            onclick="return EmailValidation('loginEmail', 'loginEmailErr')">Sign In</button>
+                        <p class="text-center text-muted small mb-0">Don't have an account? <a href="#"
+                                class="text-dark fw-semibold">Register</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            var p = document.getElementById('loginPassword');
+            p.type = p.type === 'password' ? 'text' : 'password';
+        });
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (this.checkValidity()) {
+                this.innerHTML = '<p class="text-center text-success fw-bold py-3">✅ Signed in successfully!</p>';
+            } else { this.classList.add('was-validated'); }
+        });
+    </script>
+
+    <script src="./script.js"></script>
+
+    <!--Boostrap Js Link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
