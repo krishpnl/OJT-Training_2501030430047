@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inline, Internal and External</title>
+    <style>
+        .internal {
+            color: white;
+            background-color: black;
+            padding: 12px;
+            margin: 12px;
+            border-radius: 12px;
+        }
+    </style>
+    <link rel="stylesheet" href="task4.css">
+</head>
+
+<body>
+    <!-- Inline Css-->
+    <div style="color: cyan; background-color: #093C5D; padding: 12px; border-radius: 12px;">
+        <h1>Krish Panchal</h1>
+        <p>Inline css has highest priority.</p>
+    </div>
+
+    <!-- Internal Css-->
+    <div class="internal">
+        <p>Instagram: @krishpnl</p>
+        <p>Internal css has lowest priority than Inline Css and highest priority than External css.</p>
+    </div>
+
+    <!-- External Css-->
+    <div class="external">
+        <h1 id="new">College: SOCET</h1>
+        <p>Course: B.Tech CE</p>
+        <p>Semester: 5th</p>
+        <p>External css has lowest priority than Inline Css and Internal css.</p>
+    </div>
+</body>
+
+</html>

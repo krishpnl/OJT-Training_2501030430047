@@ -1,0 +1,9 @@
+.external{
+    background-color: #8A5F41;
+    padding: 12px;
+    margin: 12px;
+    border-radius: 12px;
+}
+.external h1, p {
+    color: #F3E4C9;
+}

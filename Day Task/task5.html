@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Transform Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            transition: transform 0.5s ease;
+        }
+
+        div {
+            text-align: center;
+            margin: 12px;
+        }
+
+        .box:hover {
+            transform: scale(2.5) rotate(45deg) translate(50px, 20px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">Hover Over Me</div>
+
+</body>
+
+</html>
